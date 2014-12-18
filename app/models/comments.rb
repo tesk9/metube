@@ -1,4 +1,4 @@
 class Comments < ActiveRecord::Base
-  belongs_to :video
+  has_many :comments, :as => :commentable
   validates :subject, length: {maximum: 50}, presence: true
 end

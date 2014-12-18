@@ -1,0 +1,2 @@
+module CommentableHelper
+end

@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    Videos.create(title: params[:video][:title], url: params[:video][:url])
+    Videos.create(title: params[:video][:title], url: params[:video][:url], desc: params[:video][:desc])
     redirect_to :back
   end
 
@@ -13,7 +13,7 @@ class VideosController < ApplicationController
   end
 
   def update
-    Videos.update(params[:id], title: params[:video][:title], url: params[:video][:url])
+    Videos.update(params[:id], title: params[:video][:title], url: params[:video][:url], desc: params[:video][:desc])
     redirect_to('/videos/#{params[:id]}')
   end
 
