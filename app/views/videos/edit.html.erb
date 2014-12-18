@@ -1,0 +1,17 @@
+<%= form_tag("/videos/#{@vid.id}", method: "put") do %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= label_tag('video[title]', 'Title:') %></td>
+        <td><%= text_field_tag('video[title]', @vid.title) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag('video[url]', 'URL:') %></td>
+        <td><%= text_field_tag('video[url]', @vid.url) %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("Make Changes") %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

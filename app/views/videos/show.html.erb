@@ -1,0 +1,44 @@
+<h1><%= @vid.title %></h1>
+
+<iframe width="420" height="315" src=<%= "#{@vid.url}" %>></iframe>
+
+<br><br>
+<h3>Add a Comment:</h3>
+
+<%= form_tag("/videos/#{@vid.id}/comments", method: "post") do %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= label_tag('comment[subject]', 'Subject:') %></td>
+        <td><%= text_field_tag('comment[subject]') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag('comment[body]', 'Body:') %></td>
+        <td><%= text_field_tag('comment[body]') %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("submit") %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<br><br>
+<h3>Comments:</h3>
+
+
+<table class="comments">
+  <tbody>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><strong><%= comment.subject.slice(0,20) %></strong></td>
+      <td><%= comment.body %></td>
+      <td>
+        <%= form_tag("comments/#{comment.id}", method: "delete") do %>
+          <%= submit_tag("DELETE") %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody> 
+</table>

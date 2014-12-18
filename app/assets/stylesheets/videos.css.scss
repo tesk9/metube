@@ -1,0 +1,25 @@
+// Place all the styles related to the videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.page-nav {
+  text-decoration: none;
+  color: black;
+}
+
+.vid-list td:nth-of-type(1) {
+  width: 100%;
+}
+
+.vid-list tr:nth-of-type(odd) {
+  background-color: lightgray;
+}
+
+.comments td:nth-of-type(1) {
+  width: 100px;
+}
+
+.comments td:nth-of-type(2) {
+  width: 100%;
+}
