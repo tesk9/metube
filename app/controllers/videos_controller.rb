@@ -25,6 +25,6 @@ class VideosController < ApplicationController
 
   def show
     @vid = Videos.find(params[:id])
-    @comments = Comments.where(video_id: params[:id])
+    @comments = Comments.where(comment_on: "video", location_id: params[:id]);
   end
 end

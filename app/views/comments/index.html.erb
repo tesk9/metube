@@ -1,0 +1,37 @@
+<table class="comments">
+  <tbody>
+    <tr>
+      <td><strong><%= @reply_to.subject %></strong></td>
+      <td><%= @reply_to.body %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= render partial: "comments_table", locals: {comments: @all_responses, vid_id: @vid_id} %>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<h3>Reply:</h3>
+<%= form_tag("/videos/#{@reply_to.location_id}/comments", method: "post") do %>
+  <%= hidden_field_tag('comment[comment_on]', 'comment') %>
+  <%= hidden_field_tag('comment[location_id]', "#{@reply_to.id}") %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= label_tag('comment[subject]', 'Subject:') %></td>
+        <td><%= text_field_tag('comment[subject]') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag('comment[body]', 'Body:') %></td>
+        <td><%= text_field_tag('comment[body]') %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("Add Comment") %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
