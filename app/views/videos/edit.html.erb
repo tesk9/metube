@@ -1,3 +1,7 @@
+<%= render partial: "helpers/header" %>
+
+<h3>Edit Video Details:</h3>
+
 <%= form_tag("/videos/#{@vid.id}", method: "put") do %>
   <table>
     <tbody>
