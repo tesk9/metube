@@ -1,0 +1,11 @@
+<table class="playlist-list">
+  <tbody>
+    <% @lists.each do |list| %>
+          <tr>
+            <td>
+              <a class="page-nav" href="/playlists/<%= list.id %>"><%= list.name %></a>
+            </td>
+          </tr>
+    <% end %>
+  </tbody>
+</table>

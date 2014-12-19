@@ -1,0 +1,13 @@
+<table class="list-videos">
+  <tbody>
+    <% @vid_array.each do |vid| %>
+      <tr>
+        <td>
+          <a href="/videos/<%= vid.id %>"><%= vid.title %></a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= @mess %>
