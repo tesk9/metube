@@ -9,25 +9,8 @@
 <br><br>
 <h3>Add a Comment:</h3>
 
-<%= form_tag("/videos/#{@vid.id}/comments", method: "post") do %>
-  <%= hidden_field_tag('comment[comment_on]', 'video') %>
-  <%= hidden_field_tag('comment[location_id]', "#{@vid.id}") %>
-  <table>
-    <tbody>
-      <tr>
-        <td><%= label_tag('comment[subject]', 'Subject:') %></td>
-        <td><%= text_field_tag('comment[subject]') %></td>
-      </tr>
-      <tr>
-        <td><%= label_tag('comment[body]', 'Body:') %></td>
-        <td><%= text_field_tag('comment[body]') %></td>
-      </tr>
-      <tr>
-        <td><%= submit_tag("submit") %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+
+<%= render partial: "comments/comment_form", locals: {location: @vid.id, type: "videos"} %>
 
 <br><br>
 <h3>Comments:</h3>

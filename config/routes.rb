@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :playlists do
     resources :comments
   end
+
+  post '/list', to: 'list#create'
+  delete '/list/:id', to: 'list#destroy'
 end
 

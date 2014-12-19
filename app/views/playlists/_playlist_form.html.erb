@@ -1,0 +1,13 @@
+<%= form_tag("/list", method: "post") do %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= label_tag('list[name]', 'New Playlist Name:') %></td>
+        <td><%= text_field_tag('list[name]') %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("Add New Playlist") %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

@@ -1,0 +1,19 @@
+<%= form_tag("/#{type}/#{location}/comments", method: "post") do %>
+  <%= hidden_field_tag('comment[comment_on]', type.slice(0, type.length-1)) %>
+  <%= hidden_field_tag('comment[location_id]', "#{location}") %>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= label_tag('comment[subject]', 'Subject:') %></td>
+        <td><%= text_field_tag('comment[subject]') %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag('comment[body]', 'Body:') %></td>
+        <td><%= text_field_tag('comment[body]') %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag("submit") %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

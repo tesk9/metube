@@ -6,12 +6,20 @@
               <a class="page-nav" href="/videos/<%= vid.id %>"><%= vid.title %></a>
             </td>
             <td>
-              <%= form_tag("videos/#{vid.id}/edit", method: "get") do %>
+              <%= form_tag("/playlists", method: "post") do %>
+                <%= hidden_field_tag('playlist[video_id]', "#{vid.id}") %>
+                <%= collection_select :playlist, :list_id, @lists, :id, :name, include_blank: true %>
+            </td><td>
+                <%= submit_tag("ADD TO PLAYLIST") %>
+              <% end %>
+            </td>
+            <td>
+              <%= form_tag("/videos/#{vid.id}/edit", method: "get") do %>
                 <%= submit_tag("EDIT") %>
               <% end %>
             </td>
             <td>
-              <%= form_tag("videos/#{vid.id}", method: "delete") do %>
+              <%= form_tag("/videos/#{vid.id}", method: "delete") do %>
                 <%= submit_tag("DELETE") %>
                 <% end %>
             </td>  

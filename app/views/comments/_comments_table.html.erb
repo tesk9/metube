@@ -5,14 +5,14 @@
       <td><strong><%= comment.subject %></strong></td>
       <td><%= comment.body %></td>
       <td>
-        <%= form_tag("/videos/#{vid_id}/comments", method: "get") do %>
+        <%= form_tag("/#{comment.comment_on}s/#{comment.location_id}/comments", method: "get") do %>
           <%= hidden_field_tag('comment[comment_on]', 'comment') %>
           <%= hidden_field_tag('comment[location_id]', "#{comment.id}") %>
           <%= submit_tag("REPLY") %>
         <% end %>
       </td>
       <td>
-        <%= form_tag("comments/#{comment.id}", method: "delete") do %>
+        <%= form_tag("/#{comment.comment_on}s/#{comment.location_id}/comments/#{comment.id}", method: "delete") do %>
           <%= submit_tag("DELETE") %>
         <% end %>
       </td>

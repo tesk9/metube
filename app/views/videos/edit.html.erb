@@ -10,6 +10,10 @@
         <td><%= text_field_tag('video[url]', @vid.url) %></td>
       </tr>
       <tr>
+        <td><%= label_tag('video[desc]', 'Description') %></td>
+        <td><%= text_field_tag('video[desc]', @vid.desc) %></td>
+      </tr>
+      <tr>
         <td><%= submit_tag("Make Changes") %></td>
       </tr>
     </tbody>

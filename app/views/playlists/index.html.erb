@@ -5,7 +5,14 @@
             <td>
               <a class="page-nav" href="/playlists/<%= list.id %>"><%= list.name %></a>
             </td>
+            <td>
+              <%= form_tag("/list/#{list.id}", method: "delete") do %>
+                <%= submit_tag("DELETE") %>
+                <% end %>
+            </td> 
           </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= render partial: "playlist_form" %>

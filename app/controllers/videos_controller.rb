@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   def index
     @videos = Videos.all
+    @lists = List.all
   end
 
   def create
@@ -14,11 +15,11 @@ class VideosController < ApplicationController
 
   def update
     Videos.update(params[:id], title: params[:video][:title], url: params[:video][:url], desc: params[:video][:desc])
-    redirect_to('/videos/#{params[:id]}')
+    redirect_to video_url(:id => "#{params[:id]}")
   end
 
   def destroy
-    Comments.delete_all(video_id: params[:id])
+    Comments.delete_all(location_id: params[:id], comment_on: "video")
     Videos.delete(params[:id])
     redirect_to('/')
   end

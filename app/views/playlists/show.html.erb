@@ -10,4 +10,5 @@
   </tbody>
 </table>
 
-<%= @mess %>
+<%= render partial: "comments/comment_form", locals: {location: @list_id, type: "playlists"} %>
+<%= render partial: "comments/comments_table", locals: {comments: @comments} %>

@@ -4,7 +4,10 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    Playlist.create(list_id: params[:playlist][:list_id], video_id: params[:playlist][:list_id])
+    if !(Playlist.where(list_id: params[:playlist][:list_id], video_id: params[:playlist][:video_id]).length > 0)
+      Playlist.create(list_id: params[:playlist][:list_id], video_id: params[:playlist][:video_id])
+    end
+    redirect_to playlist_url(:id => "#{params[:playlist][:list_id]}")
   end
 
   def show
@@ -13,6 +16,7 @@ class PlaylistsController < ApplicationController
     vid_list.each do |v|
       @vid_array.push(Videos.find(v.video_id))
     end
+    @list_id = params[:id]
+    @comments = Comments.where(comment_on: "playlist", location_id: @list_id)
   end
-
 end
